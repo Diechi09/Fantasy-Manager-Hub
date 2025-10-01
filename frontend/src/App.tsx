@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 
-// placeholders for now
 const TradeCalculator = () => <div className="page"><h2>Trade Calculator</h2></div>;
 const Trending        = () => <div className="page"><h2>Trending Players</h2></div>;
 const RosterAnalysis  = () => <div className="page"><h2>Roster Analysis</h2></div>;
