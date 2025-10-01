@@ -9,7 +9,7 @@ export default function Home() {
     fetch("http://127.0.0.1:8000/")
       .then(r => r.json())
       .then(setData)
-      .catch(() => setData({ title: "Fantasy Manager Hub", message: "Welcome!" }));
+      .catch(() => setData({ title: "Fantasy Manager Hub", message: "The Tool to dominate your leagues" }));
   }, []);
 
   return (
