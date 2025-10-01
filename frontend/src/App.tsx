@@ -1,29 +1,31 @@
-import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 
-type Welcome = { title: string; message: string };
+// placeholders for now
+const TradeCalculator = () => <div className="page"><h2>Trade Calculator</h2></div>;
+const Trending        = () => <div className="page"><h2>Trending Players</h2></div>;
+const RosterAnalysis  = () => <div className="page"><h2>Roster Analysis</h2></div>;
+const CoachAssistant  = () => <div className="page"><h2>Coach Assistant</h2></div>;
+const Login           = () => <div className="page"><h2>Login</h2></div>;
+const Signup          = () => <div className="page"><h2>Sign Up</h2></div>;
 
 export default function App() {
-  const [data, setData] = useState<Welcome | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/") // FastAPI returns welcome JSON at "/"
-      .then(r => r.json())
-      .then(setData)
-      .catch(() => setError("Could not reach backend"));
-  }, []);
-
   return (
-    <div className="container">
-      <section className="hero card">
-        <h1>{data?.title ?? "Fantasy Manager Hub"}</h1>
-        <p>{data?.message ?? "Loading…"}</p>
-        {error && <p className="error">{error}</p>}
-        <div className="row">
-          <button className="btn" disabled>Get Started</button>
-          <button className="btn ghost" disabled>See Trends</button>
-        </div>
-      </section>
+    <div className="app-root">
+      <Navbar />
+      <main className="app-main">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/trade-calculator" element={<TradeCalculator />} />
+          <Route path="/trending" element={<Trending />} />
+          <Route path="/roster-analysis" element={<RosterAnalysis />} />
+          <Route path="/coach-assistant" element={<CoachAssistant />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </main>
+      <footer className="app-footer">© {new Date().getFullYear()} Fantasy Manager Hub</footer>
     </div>
   );
 }
