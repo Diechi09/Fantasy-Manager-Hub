@@ -2,7 +2,8 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import TradeCalculator from "./pages/TradeCalculator";  // <-- use your real page
+import TradeCalculator from "./pages/TradeCalculator"; 
+import TrendingPlayers from "./pages/TrendingPlayers";
 
 const Trending        = () => <div className="page"><h2>Trending Players</h2></div>;
 const RosterAnalysis  = () => <div className="page"><h2>Roster Analysis</h2></div>;
@@ -17,8 +18,8 @@ export default function App() {
       <main className="app-main">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/trade-calculator" element={<TradeCalculator />} /> {/* <-- real page */}
-          <Route path="/trending" element={<Trending />} />
+          <Route path="/trade-calculator" element={<TradeCalculator />} /> 
+          <Route path="/trending" element={<TrendingPlayers />} />
           <Route path="/roster-analysis" element={<RosterAnalysis />} />
           <Route path="/coach-assistant" element={<CoachAssistant />} />
           <Route path="/login" element={<Login />} />
