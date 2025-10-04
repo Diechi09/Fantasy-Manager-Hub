@@ -7,7 +7,7 @@ from datetime import datetime
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field, conint
 
-from app.db_conn import db_conn
+from app.db_conn import get_conn as db_conn
 
 router = APIRouter()
 
